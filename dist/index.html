@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+			integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Odin Weather App</title>
+	</head>
+
+	<body>
+		<!-- <h2>Weather App - learndin dem done did API's 'n' sich</h2> -->
+		<section class="container-main">
+			<!-- <div class="search"> -->
+			<div class="search">
+				<form id="input-form">
+					<button class="btn" type="button">
+						<i class="fas fa-search"></i>
+					</button>
+					<input type="text" class="input" placeholder="Search..." />
+				</form>
+			</div>
+			<!-- <form id="input">
+					<input class="city" type="text" placeholder="Enter City Here" />
+				</form> -->
+			<!-- </div> -->
+			<div class="dashboard">
+				<section class="location"></section>
+				<section class="weather-today"></section>
+			</div>
+			<section class="weather-forecast">
+				<section class="forecast"></section>
+			</section>
+		</section>
+		<footer>
+			Powered by
+			<a href="https://www.weatherapi.com/" title="Weather API"
+				>WeatherAPI.com</a
+			>
+		</footer>
+		<script src="main.js"></script>
+	</body>
+</html>
