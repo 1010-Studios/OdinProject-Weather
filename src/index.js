@@ -29,9 +29,9 @@ async function getWeather(city) {
 
 function screenRender(data) {
 	renderDashboard(data);
-	data.forecast.forecastday.forEach((day) => {
-		renderForecast(day);
-	});
+	// data.forecast.forecastday.forEach((day) => {
+	// 	renderForecast(day);
+	// });
 }
 
 const renderDashboard = (data) => {
@@ -40,15 +40,10 @@ const renderDashboard = (data) => {
 	const region = data.location.region;
 	const country = data.location.country;
 
-	const locationHeader = document.querySelector('.location');
-	const cityHead = document.createElement('h2');
-	const countryHead = document.createElement(`h4`);
-
-	cityHead.innerText = `${city}, ${region}`;
-	countryHead.innerText = country;
-
-	locationHeader.appendChild(cityHead);
-	locationHeader.appendChild(countryHead);
+	const locationCity = document.querySelector('.location-city');
+	const locationCountry = document.querySelector('.location-country');
+	locationCity.innerText = `${city}, ${region}`;
+	locationCountry.innerText = country;
 
 	//Current Weather
 	const weather = data.current.temp_c;
@@ -58,26 +53,22 @@ const renderDashboard = (data) => {
 	const sunRise = data.forecast.forecastday[0].astro.sunrise;
 	const sunSet = data.forecast.forecastday[0].astro.sunset;
 
-	const currentWeather = document.querySelector(`.weather-today`);
-	currentWeather.innerHTML = '';
-	const newDiv = document.createElement('div');
-	newDiv.innerHTML = `
+	const weatherIcon = document.querySelector(`.weather-icon`);
+	const weatherCurrent = document.querySelector(`.weather-current`);
+
+	weatherIcon.src = conditionIcon;
+
+	weatherCurrent.innerHTML = `
 	<br> ${condition}
 	<br>Current: ${weather} 
 	<br>Feels Like: ${feelslike}
 	<br>Sunrise: ${sunRise}
 	<br>Sunset: ${sunSet}`;
-	const conditionIMG = document.createElement(`img`);
-	conditionIMG.src = conditionIcon;
-
-	currentWeather.appendChild(conditionIMG);
-	currentWeather.appendChild(newDiv);
 };
 
 const renderForecast = (data) => {
 	const drawhere = document.querySelector('.forecast');
 	const dayDiv = document.createElement('div');
-	dayDiv.id = data.date;
 	dayDiv.classList.add('dayDiv');
 
 	const renderDate = data.date;
