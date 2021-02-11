@@ -81,7 +81,7 @@ const renderForecast = (data) => {
 };
 
 getCity();
-// getWeather();
+getWeather();
 
 const search = document.querySelector('.search');
 const btn = document.querySelector('.btn');
